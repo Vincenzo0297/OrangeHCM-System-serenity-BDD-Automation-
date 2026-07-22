@@ -1,5 +1,8 @@
+# gientech-training-test-automation-bdd — checkout suite
+
 <!-- Filled example (the gientech demo repo). Copy to the repo root as project.md and adjust. -->
----
+
+```yaml
 framework:      maven
 language:       java
 test_type:      cucumber
@@ -26,9 +29,7 @@ env:
   browser:  chrome
   base_url: "https://the-internet.herokuapp.com"   # replace with the real SUT
   test_env: "training"
----
-
-# gientech-training-test-automation-bdd — checkout suite
+```
 
 ## What this suite covers
 Serenity BDD + Cucumber UI tests for a checkout/payment form (credit & debit card flows).
