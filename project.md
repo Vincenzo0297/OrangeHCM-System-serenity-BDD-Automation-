@@ -40,12 +40,32 @@ Serenity BDD + Cucumber UI tests for a checkout/payment form (credit & debit car
 
 ## Failure-fix conventions
 - Use Serenity's `waitFor`/expected-conditions, not `Thread.sleep`.
-- Submit sits below the fold and can be overlapped — `scrollIntoView` before clicking.
 - Keep a fix inside the page object or step that owns the failing element.
+- **element click intercepted** → prefer a **JavaScript click** (scrolling alone often doesn't clear
+  the overlay). In Serenity Screenplay, resolve the `Target` to a `WebElement` first, then eval via
+  the actor's browser ability. Do NOT pass a `Target` into a JS-eval helper (it wants a `WebElement`):
+
+  ```java
+  import net.serenitybdd.screenplay.Performable;
+  import net.serenitybdd.screenplay.Task;
+  import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+  import org.openqa.selenium.JavascriptExecutor;
+  import org.openqa.selenium.WebElement;
+
+  public static Performable clickSubmitButton() {
+      return Task.where("{0} clicks the Submit button",
+          actor -> {
+              WebElement el = CheckoutPageObjects.SUBMIT_BUTTON.resolveFor(actor);
+              ((JavascriptExecutor) BrowseTheWeb.as(actor).getDriver())
+                  .executeScript("arguments[0].click();", el);
+          });
+  }
+  ```
 
 ## Known-flaky / gotchas
 - The submit button is frequently reported "element click intercepted" (overlay / below fold).
-  The proxy already auto-recovers this (scroll+retry, then JS click) when self-heal is on.
+  Easiest path: **run with self-heal ON** — the proxy auto-recovers (scroll+retry, then JS click),
+  no code change needed. For a code fix, use the JavaScript-click pattern above.
 
 ## Do NOT edit
 - `src/test/resources/serenity.conf` (driver/browser config is environment-managed).

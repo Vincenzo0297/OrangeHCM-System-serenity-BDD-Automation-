@@ -7,6 +7,9 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Hit;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import org.openqa.selenium.Keys;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 public class EnterCheckoutDetailsActions {
 
@@ -55,7 +58,10 @@ public class EnterCheckoutDetailsActions {
         System.out.println("paymentMethod: " + paymentMethod);
         if (paymentMethod.toLowerCase().contains("credit")) {
             return Task.where("{0} selects payment method 'credit'",
-                    Click.on(CheckoutPageObjects.CREDIT_CARD_RADIO)
+                    actor -> {
+                        WebElement el = CheckoutPageObjects.CREDIT_CARD_RADIO.resolveFor(actor);
+                        ((JavascriptExecutor) BrowseTheWeb.as(actor).getDriver()).executeScript("arguments[0].click();", el);
+                    }
             );
         }
         else {
