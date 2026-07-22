@@ -73,7 +73,10 @@ public class EnterCheckoutDetailsActions {
 
     public static Performable clickSubmitButton() {
         return Task.where("{0} clicks the Submit button",
-                Click.on(CheckoutPageObjects.SUBMIT_BUTTON)
+                actor -> {
+    WebElement el = CheckoutPageObjects.SUBMIT_BUTTON.resolveFor(actor);
+    ((JavascriptExecutor) BrowseTheWeb.as(actor).getDriver()).executeScript("arguments[0].click();", el);
+}
         );
     }
 }
