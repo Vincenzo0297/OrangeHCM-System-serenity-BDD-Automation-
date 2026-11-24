@@ -1,6 +1,6 @@
-OrangeHCM_Admin_TC_2.featureOrangeHCM_Admin_TC_1.featureFeature: OrangeHCM_System_Admin_TC_1
+Feature: OrangeHCM_System_Admin_TC_4
 
-  Scenario Outline: OrangeHCM_System_Admin_TC_1
+  Scenario Outline: OrangeHCM_System_Admin_TC_4
     Given User navigates to the home page
     Then User enters username '<Username>'
     And User enters password '<Password>'

@@ -1,81 +1,75 @@
 package starter.stepdefinitions;
-
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.questions.page.TheWebPage;
+import net.serenitybdd.screenplay.actions.Click;
+import starter.UilityFunctions.WaitSeconds;
+import starter.fill.OrangeHCMPath;
 import starter.navigation.NavigateToActions;
-import starter.fill.EnterCheckoutDetailsActions;
+import starter.navigation.OrangeHCMActions;
+import java.util.List;
 
-public class CheckoutStepDefinitions {
+public class OrangeHCMStepDefinitions {
 
-    @Given("{actor} navigates to the checkout page")
-    public void userNavigatesToTheCheckoutPage(Actor actor) {
-        actor.wasAbleTo(NavigateToActions.theCheckoutPage());
-    }
-
-    @And("{actor} enters first name {string}")
-    public void userEntersFirstName(Actor actor, String inputValue) {
-        actor.attemptsTo(
-                EnterCheckoutDetailsActions.enterFirstName(inputValue)
+    @Given("{actor} navigates to the home page")
+    public void userNavigatesToTheHomePage(Actor actor) {
+        actor.wasAbleTo(
+                NavigateToActions.theHomePage(),
+                WaitSeconds.Now()
         );
     }
 
-    @And("{actor} enters last name {string}")
-    public void userEntersLastName(Actor actor, String inputValue) {
+    @Then("{actor} enters username {string}")
+    public void userEntersUsernameUsername(Actor actor, String userName) {
         actor.attemptsTo(
-                EnterCheckoutDetailsActions.enterLastName(inputValue)
+                OrangeHCMActions.enterUserName(userName),
+                WaitSeconds.Now()
         );
     }
 
-    @And("{actor} enters email {string}")
-    public void userEntersEmail(Actor actor, String inputValue) {
+    @And("{actor} enters password {string}")
+    public void userEntersPasswordPassword(Actor actor, String userPassword) {
         actor.attemptsTo(
-                EnterCheckoutDetailsActions.enterFirstName(inputValue)
+                OrangeHCMActions.enterUserPassword(userPassword),
+                WaitSeconds.Now()
         );
     }
 
-    @And("{actor} enters address {string}")
-    public void userEntersAddress(Actor actor, String inputValue) {
+    @And("{actor} click on login button")
+    public void userClickOnLoginButton(Actor actor) {
         actor.attemptsTo(
-                EnterCheckoutDetailsActions.enterLastName(inputValue)
+                Click.on(OrangeHCMPath.CLICK_LOGIN_BUTTON),
+                WaitSeconds.Now()
         );
     }
 
-    @And("{actor} selects country {string}")
-    public void userSelectsCountry(Actor actor, String inputValue) {
+    @And("{actor} navigate to the Admin")
+    public void userNavigateToTheAdmin(Actor actor) {
         actor.attemptsTo(
-                EnterCheckoutDetailsActions.selectCountry(inputValue)
+                Click.on(OrangeHCMPath.NAVIGATE_TO_ADMIN),
+                WaitSeconds.Now()
         );
     }
 
-    @And("{actor} enters zip code {string}")
-    public void userEntersZipCode(Actor actor, String inputValue) {
+    @And("{actor} click on the add button")
+    public void userClickOnTheAddButton(Actor actor) {
         actor.attemptsTo(
-                EnterCheckoutDetailsActions.enterZipCode(inputValue)
+                Click.on(OrangeHCMPath.CLICK_ADD_BUTTON)
         );
     }
 
-    @And("{actor} selects payment method {string}")
-    public void userSelectsPaymentMethod(Actor actor, String inputValue) {
+    @And("{actor} add the the user type")
+    public void userAddTheTheUserType(Actor actor, List <String> userType) {
         actor.attemptsTo(
-                EnterCheckoutDetailsActions.selectPaymentMethod(inputValue)
-        );
-    }
-
-    @Then("{actor} should see no errors")
-    public void userShouldSeeNoErrors(Actor actor) {
-        actor.attemptsTo(
-                Ensure.that(TheWebPage.title()).containsIgnoringCase(" ")
-        );
-    }
-
-    @And("{actor} clicks the Submit button")
-    public void userClicksTheSubmitButton(Actor actor) {
-        actor.attemptsTo(
-                EnterCheckoutDetailsActions.clickSubmitButton()
+                OrangeHCMActions.selectUserRole(userType.get(0)),
+                OrangeHCMActions.enterEmployeeName(userType.get(1)),
+                OrangeHCMActions.selectStatus(userType.get(2)),
+                OrangeHCMActions.enterUserTypeUserName(userType.get(3)),
+                OrangeHCMActions.enterUserTypePassword(userType.get(4)),
+                OrangeHCMActions.enterenterUserTypeConfirmPassword(userType.get(5)),
+                WaitSeconds.Now()
         );
     }
 }

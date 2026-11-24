@@ -1,10 +1,19 @@
-Feature: OrangeHCM_System_TC_1
+Feature: OrangeHCM_System_Admin_TC_1
 
-  Scenario Outline: OrangeHCM_System_TC_1
+  Scenario Outline: OrangeHCM_System_Admin_TC_1
     Given User navigates to the home page
     Then User enters username '<Username>'
     And User enters password '<Password>'
     And User click on login button
+    And User navigate to the Admin
+    And User click on the add button
+    And User add the the user type
+      | Admin                |
+      | Enabled              |
+      | Rosanna Ryan Pagac   |
+      | username             |
+      | password1            |
+      | password1            |
 
     Examples:
       | Username | Password |
@@ -14,3 +23,4 @@ Feature: OrangeHCM_System_TC_1
     # run in terminal
     # mvn clean verify
     # to execute the bdd script
+    # Issue Select the user role and status, To-be-continue
