@@ -61,14 +61,14 @@ public class OrangeHCMStepDefinitions {
     }
 
     @And("{actor} add the the user type")
-    public void userAddTheTheUserType(Actor actor, List <String> userType) {
+    public void userAddTheTheUserType(Actor actor, List<String> userType) {
         actor.attemptsTo(
-                OrangeHCMActions.selectUserRole(userType.get(0)),
-                OrangeHCMActions.enterEmployeeName(userType.get(1)),
-                OrangeHCMActions.selectStatus(userType.get(2)),
-                OrangeHCMActions.enterUserTypeUserName(userType.get(3)),
-                OrangeHCMActions.enterUserTypePassword(userType.get(4)),
-                OrangeHCMActions.enterenterUserTypeConfirmPassword(userType.get(5)),
+                OrangeHCMActions.selectUserRole(userType.get(0)),       // Admin
+                OrangeHCMActions.selectStatus(userType.get(1)),         // Enabled
+                OrangeHCMActions.enterEmployeeName(userType.get(2)),    // Rosanna Ryan Pagac
+                OrangeHCMActions.enterUserTypeUserName(userType.get(3)), // username
+                OrangeHCMActions.enterUserTypePassword(userType.get(4)),  // password
+                OrangeHCMActions.enterenterUserTypeConfirmPassword(userType.get(5)), // confirm password
                 WaitSeconds.Now()
         );
     }

@@ -26,13 +26,14 @@ public class OrangeHCMActions {
     }
 
     public static Performable selectUserRole(String userRole) {
-        return Task.where("{0} select the userRole",
+        return Task.where("{0} selects user role " + userRole,
                 actor -> {
                     actor.attemptsTo(
                             Click.on(OrangeHCMPath.CLICK_USER_ROLE_OPTION),
-                            SelectFromOptions.byVisibleText(userRole).from(OrangeHCMPath.SELECT_USER_ROLE)
+                            Click.on(OrangeHCMPath.SELECT_USER_ROLE.of(userRole))
                     );
-                });
+                }
+        );
     }
 
     public static Performable enterEmployeeName(String employeeName) {
