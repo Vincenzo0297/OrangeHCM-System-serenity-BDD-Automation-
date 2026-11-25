@@ -20,7 +20,8 @@ public class OrangeHCMPath {
             .locatedBy("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input");
     public static Target CLICK_STATUS_OPTION = Target.the("click status option button")
             .locatedBy("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div/div[2]/i");
-    public static Target SELECT_STATUS = Target.the("select status").locatedBy("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div/div[1]");
+    public static Target SELECT_STATUS = Target.the("select status")
+            .locatedBy("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div/div[1]");
     public static Target ENTER_USER_TYPE_USER_NAME = Target.the("enter user type username")
             .locatedBy("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input");
     public static Target ENTER_USER_TYPE_PASSWORD = Target.the("enter user type password")

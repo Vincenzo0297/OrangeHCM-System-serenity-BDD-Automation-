@@ -3,7 +3,6 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import starter.fill.OrangeHCMPath;
 
 public class OrangeHCMActions {
@@ -46,11 +45,11 @@ public class OrangeHCMActions {
     }
 
     public static Performable selectStatus(String Status) {
-        return Task.where("{0} select the status",
+        return Task.where("{0} select the status" + Status,
                 actor -> {
                     actor.attemptsTo(
                             Click.on(OrangeHCMPath.CLICK_STATUS_OPTION),
-                            SelectFromOptions.byVisibleText(Status).from(OrangeHCMPath.SELECT_STATUS)
+                            Click.on(OrangeHCMPath.SELECT_STATUS.of(Status))
                     );
                 });
     }
