@@ -156,3 +156,15 @@ public class OrangeHCMActions {
                 });
     }
 }
+
+//    public static Performable selectDropdownOption(String label, String value) {
+//        return Task.where("{0} selects " + value + " from " + label,
+//                actor -> {
+//                    actor.attemptsTo(
+//                            Click.on(OrangeHRM_Admin_Path.DROPDOWN_BY_LABEL.of(label)),
+//                            WaitUntil.the(OrangeHRM_Admin_Path.OPTION.of(value), isVisible())
+//                                    .forNoMoreThan(5).seconds(),
+//                            Click.on(OrangeHRM_Admin_Path.OPTION.of(value))
+//                    );
+//                });
+//    }
