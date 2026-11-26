@@ -25,4 +25,8 @@ Feature: SwagLabs_TC_1
     # run in terminal
     # mvn clean verify
     # to execute the bdd script
-    # Issue Select the user role and status, To-be-continue
+
+    # Miss out requirement
+    # 1) selecting the cart
+    # 2) selecting the option
+    # 3) validation
