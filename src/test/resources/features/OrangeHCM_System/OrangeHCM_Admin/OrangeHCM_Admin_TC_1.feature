@@ -10,10 +10,17 @@ Feature: OrangeHCM_System_Admin_TC_1
     And User add the the user type
       | Admin                |
       | Enabled              |
-      | Rosanna Ryan Pagac   |
+      | Odis Adalwin         |
       | username             |
       | password1            |
       | password1            |
+    And User click on the save button
+    And User search for system user
+      | Harrison             |
+      | ESS                  |
+      | Enabled              |
+    And User click on the search button
+    And User validates the created system user details
 
     Examples:
       | Username | Password |

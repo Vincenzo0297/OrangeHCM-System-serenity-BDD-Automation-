@@ -72,11 +72,86 @@ public class OrangeHCMActions {
                 });
     }
 
-    public static Performable enterenterUserTypeConfirmPassword(String userTypeConfirmPassword) {
+    public static Performable enterUserTypeConfirmPassword(String userTypeConfirmPassword) {
         return Task.where("{0} enter user type confirm password",
                 actor -> {
                     actor.attemptsTo(
                             Enter.theValue(userTypeConfirmPassword).into(OrangeHCMPath.ENTER_USER_TYPE_CONFIRM_PASSWORD)
+                    );
+                });
+    }
+
+    public static Performable enterSystemUserName(String systemUserName) {
+        return Task.where("{0} enter system user name",
+                actor -> {
+                    actor.attemptsTo(
+                            Enter.theValue(systemUserName).into(OrangeHCMPath.ENTER_SYSTEM_USER_NAME)
+                    );
+                });
+    }
+
+    public static Performable selectSystemUserRole(String systemUserRole) {
+        return Task.where("{0} select the system user role" + systemUserRole,
+                actor -> {
+                    actor.attemptsTo(
+                            Click.on(OrangeHCMPath.CLICK_SYSTEM_USER_ROLE_OPTION),
+                            Click.on(OrangeHCMPath.SELECT_SYSTEM_USER_ROLE.of(systemUserRole))
+                    );
+                });
+
+    }
+
+    public static Performable enterSystemUserEmployeeName(String systemUserEmployeeName) {
+        return Task.where("{0} enter system user employee name",
+                actor -> {
+                    actor.attemptsTo(
+                            Enter.theValue(systemUserEmployeeName).into(OrangeHCMPath.ENTER_SYSTEM_USER_EMPLOYEE_NAME)
+                    );
+                });
+    }
+
+    public static Performable selectSystemUserStatus(String systemUserStatus) {
+        return Task.where("{0} select the system user status" + systemUserStatus,
+                actor -> {
+                    actor.attemptsTo(
+                            Click.on(OrangeHCMPath.CLICK_SYSTEM_USER_STATUS_OPTION),
+                            Click.on(OrangeHCMPath.SELECT_SYSTEM_USER_STATUS.of(systemUserStatus))
+                    );
+                });
+    }
+
+    public static Performable validateSystemUserName(String validateSystemUserName) {
+        return Task.where("{0} validate the system user name" + validateSystemUserName,
+                actor -> {
+                    actor.attemptsTo(
+
+                    );
+                });
+    }
+
+    public static Performable validateSystemUserRole(String validateSystemUserRole) {
+        return Task.where("{0} validate the system user role" + validateSystemUserRole,
+                actor -> {
+                    actor.attemptsTo(
+
+                    );
+                });
+    }
+
+    public static Performable validateSystemUserEmployeeName(String validateSystemUserEmployeeName) {
+        return Task.where("{0} validate the system user employee name" + validateSystemUserEmployeeName,
+                actor -> {
+                    actor.attemptsTo(
+
+                    );
+                });
+    }
+
+    public static Performable validateSystemUserStatus(String validateSystemUserStatus) {
+        return Task.where("{0} validate the system user status" + validateSystemUserStatus,
+                actor -> {
+                    actor.attemptsTo(
+
                     );
                 });
     }

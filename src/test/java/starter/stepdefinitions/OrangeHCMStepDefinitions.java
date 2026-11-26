@@ -1,5 +1,4 @@
 package starter.stepdefinitions;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -63,13 +62,54 @@ public class OrangeHCMStepDefinitions {
     @And("{actor} add the the user type")
     public void userAddTheTheUserType(Actor actor, List<String> userType) {
         actor.attemptsTo(
-                OrangeHCMActions.selectUserRole(userType.get(0)),       // Admin
-                OrangeHCMActions.selectStatus(userType.get(1)),         // Enabled
-                OrangeHCMActions.enterEmployeeName(userType.get(2)),    // Rosanna Ryan Pagac
-                OrangeHCMActions.enterUserTypeUserName(userType.get(3)), // username
-                OrangeHCMActions.enterUserTypePassword(userType.get(4)),  // password
-                OrangeHCMActions.enterenterUserTypeConfirmPassword(userType.get(5)), // confirm password
+                OrangeHCMActions.selectUserRole(userType.get(0)),
+                WaitSeconds.Now(),
+                OrangeHCMActions.selectStatus(userType.get(1)),
+                WaitSeconds.Now(),
+                OrangeHCMActions.enterEmployeeName(userType.get(2)),
+                WaitSeconds.Now(),
+                OrangeHCMActions.enterUserTypeUserName(userType.get(3)),
+                WaitSeconds.Now(),
+                OrangeHCMActions.enterUserTypePassword(userType.get(4)),
+                WaitSeconds.Now(),
+                OrangeHCMActions.enterUserTypeConfirmPassword(userType.get(5)),
                 WaitSeconds.Now()
+        );
+    }
+
+    @And("{actor} click on the save button")
+    public void userClickOnTheSaveButton(Actor actor) {
+        actor.attemptsTo(
+                Click.on(OrangeHCMPath.CLICK_SAVE_BUTTON)
+        );
+    }
+
+    @And("{actor} search for system user")
+    public void userSearchForSystemUser(Actor actor, List<String> SystemUser) {
+        actor.attemptsTo(
+                OrangeHCMActions.enterSystemUserName(SystemUser.get(0)),
+                OrangeHCMActions.selectSystemUserRole(SystemUser.get(1)),
+                OrangeHCMActions.selectSystemUserStatus(SystemUser.get(2))
+        );
+    }
+
+    @And("{actor} click on the search button")
+    public void userClickOnTheSearchButton(Actor actor) {
+        actor.attemptsTo(
+                Click.on(OrangeHCMPath.CLICK_SEARCH_BUTTON),
+                WaitSeconds.Now(),
+                WaitSeconds.Now(),
+                WaitSeconds.Now()
+        );
+    }
+
+    @And("{actor} validates the created system user details")
+    public void userValidatesTheCreatedSystemUserDetails(Actor actor, List<String> validateSystemUser) {
+        actor.attemptsTo(
+                OrangeHCMActions.validateSystemUserName(validateSystemUser.get(0)),
+                OrangeHCMActions.validateSystemUserRole(validateSystemUser.get(1)),
+                OrangeHCMActions.validateSystemUserEmployeeName(validateSystemUser.get(2)),
+                OrangeHCMActions.validateSystemUserStatus(validateSystemUser.get(3))
         );
     }
 }

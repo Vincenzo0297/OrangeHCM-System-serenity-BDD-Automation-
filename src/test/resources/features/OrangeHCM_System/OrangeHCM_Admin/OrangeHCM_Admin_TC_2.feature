@@ -6,14 +6,12 @@ Feature: OrangeHCM_System_Admin_TC_2
     And User enters password '<Password>'
     And User click on login button
     And User navigate to the Admin
-    And User click on the add button
-    And User add the the user type
-      | Admin                |
-      | Enable               |
-      | Rosanna Ryan Pagac   |
-      | username             |
-      | password1            |
-      | password1            |
+    And User search for system user
+      | Harrison             |
+      | ESS                  |
+      | Enabled              |
+    And User click on the search button
+    And User validates the created system user details
 
     Examples:
       | Username | Password |
