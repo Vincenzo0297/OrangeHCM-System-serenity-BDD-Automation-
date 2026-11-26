@@ -3,6 +3,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.ensure.Ensure;
 import starter.fill.OrangeHCMPath;
 
 public class OrangeHCMActions {
@@ -116,42 +117,6 @@ public class OrangeHCMActions {
                     actor.attemptsTo(
                             Click.on(OrangeHCMPath.CLICK_SYSTEM_USER_STATUS_OPTION),
                             Click.on(OrangeHCMPath.SELECT_SYSTEM_USER_STATUS.of(systemUserStatus))
-                    );
-                });
-    }
-
-    public static Performable validateSystemUserName(String validateSystemUserName) {
-        return Task.where("{0} validate the system user name" + validateSystemUserName,
-                actor -> {
-                    actor.attemptsTo(
-
-                    );
-                });
-    }
-
-    public static Performable validateSystemUserRole(String validateSystemUserRole) {
-        return Task.where("{0} validate the system user role" + validateSystemUserRole,
-                actor -> {
-                    actor.attemptsTo(
-
-                    );
-                });
-    }
-
-    public static Performable validateSystemUserEmployeeName(String validateSystemUserEmployeeName) {
-        return Task.where("{0} validate the system user employee name" + validateSystemUserEmployeeName,
-                actor -> {
-                    actor.attemptsTo(
-
-                    );
-                });
-    }
-
-    public static Performable validateSystemUserStatus(String validateSystemUserStatus) {
-        return Task.where("{0} validate the system user status" + validateSystemUserStatus,
-                actor -> {
-                    actor.attemptsTo(
-
                     );
                 });
     }

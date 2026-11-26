@@ -8,12 +8,18 @@ Feature: OrangeHCM_System_Admin_TC_3
     And User navigate to the Admin
     And User click on the add button
     And User add the the user type
-      | Admin                |
-      | Enable               |
-      | Rosanna Ryan Pagac   |
+      | ESS                  |
+      | Enabled              |
+      | Odis Adalwin         |
       | username             |
       | password1            |
       | password1            |
+    And User click on the save button
+    And User search for system user
+      | username             |
+      | ESS                  |
+      | Enabled              |
+    And User click on the search button
 
     Examples:
       | Username | Password |

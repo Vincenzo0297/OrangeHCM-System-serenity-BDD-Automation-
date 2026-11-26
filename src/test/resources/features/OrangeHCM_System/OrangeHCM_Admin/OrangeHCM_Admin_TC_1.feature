@@ -16,11 +16,10 @@ Feature: OrangeHCM_System_Admin_TC_1
       | password1            |
     And User click on the save button
     And User search for system user
-      | Harrison             |
-      | ESS                  |
+      | username             |
+      | Admin                |
       | Enabled              |
     And User click on the search button
-    And User validates the created system user details
 
     Examples:
       | Username | Password |

@@ -2,6 +2,7 @@ package starter.fill;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class OrangeHCMPath {
+
     public static Target ENTER_USER_NAME = Target.the("user enter username")
             .locatedBy("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input");
     public static Target ENTER_USER_PASSWORD = Target.the("user enter password")

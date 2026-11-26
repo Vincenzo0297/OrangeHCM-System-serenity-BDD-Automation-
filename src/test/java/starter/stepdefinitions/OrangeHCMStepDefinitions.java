@@ -55,7 +55,8 @@ public class OrangeHCMStepDefinitions {
     @And("{actor} click on the add button")
     public void userClickOnTheAddButton(Actor actor) {
         actor.attemptsTo(
-                Click.on(OrangeHCMPath.CLICK_ADD_BUTTON)
+                Click.on(OrangeHCMPath.CLICK_ADD_BUTTON),
+                WaitSeconds.Now()
         );
     }
 
@@ -80,7 +81,8 @@ public class OrangeHCMStepDefinitions {
     @And("{actor} click on the save button")
     public void userClickOnTheSaveButton(Actor actor) {
         actor.attemptsTo(
-                Click.on(OrangeHCMPath.CLICK_SAVE_BUTTON)
+                Click.on(OrangeHCMPath.CLICK_SAVE_BUTTON),
+                WaitSeconds.Now()
         );
     }
 
@@ -88,8 +90,11 @@ public class OrangeHCMStepDefinitions {
     public void userSearchForSystemUser(Actor actor, List<String> SystemUser) {
         actor.attemptsTo(
                 OrangeHCMActions.enterSystemUserName(SystemUser.get(0)),
+                WaitSeconds.Now(),
                 OrangeHCMActions.selectSystemUserRole(SystemUser.get(1)),
-                OrangeHCMActions.selectSystemUserStatus(SystemUser.get(2))
+                WaitSeconds.Now(),
+                OrangeHCMActions.selectSystemUserStatus(SystemUser.get(2)),
+                WaitSeconds.Now()
         );
     }
 
@@ -97,19 +102,7 @@ public class OrangeHCMStepDefinitions {
     public void userClickOnTheSearchButton(Actor actor) {
         actor.attemptsTo(
                 Click.on(OrangeHCMPath.CLICK_SEARCH_BUTTON),
-                WaitSeconds.Now(),
-                WaitSeconds.Now(),
                 WaitSeconds.Now()
-        );
-    }
-
-    @And("{actor} validates the created system user details")
-    public void userValidatesTheCreatedSystemUserDetails(Actor actor, List<String> validateSystemUser) {
-        actor.attemptsTo(
-                OrangeHCMActions.validateSystemUserName(validateSystemUser.get(0)),
-                OrangeHCMActions.validateSystemUserRole(validateSystemUser.get(1)),
-                OrangeHCMActions.validateSystemUserEmployeeName(validateSystemUser.get(2)),
-                OrangeHCMActions.validateSystemUserStatus(validateSystemUser.get(3))
         );
     }
 }
