@@ -10,6 +10,8 @@ public class SwagLabsPath {
             .locatedBy("//*[@id=\"password\"]");
     public static Target CLICK_LOGIN_BUTTON = Target.the("click on the login button")
             .locatedBy("//*[@id=\"login-button\"]");
+    public static Target SELECT_PRODUCT_CATEGORY = Target.the("select product category")
+            .locatedBy("//select[@class=\"product_sort_container\"]/option[text()='{0}']");
     public static Target CLICK_ON_THE_CART = Target.the("click on the cart")
             .locatedBy("//*[@id=\"shopping_cart_container\"]/a");
     public static Target CLICK_CHECKOUT_BUTTON = Target.the("click on the checkout button")

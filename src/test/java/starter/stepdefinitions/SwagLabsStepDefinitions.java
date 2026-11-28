@@ -48,6 +48,14 @@ public class SwagLabsStepDefinitions {
         );
     }
 
+    @And("{actor} select the product category {string}")
+    public void userSelectTheProductCategoryCategory(Actor actor, String productCategory) {
+        actor.attemptsTo(
+                SwagLabsActions.selectProductCategory(productCategory),
+                WaitSeconds.Now()
+        );
+    }
+
     @And("{actor} click on the cart")
     public void userClickOnTheCart(Actor actor) {
         actor.attemptsTo(
@@ -115,4 +123,6 @@ public class SwagLabsStepDefinitions {
                 WaitSeconds.Now()
         );
     }
+
+
 }

@@ -1,10 +1,20 @@
 package starter.navigation;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import starter.fill.SwagLabsPath;
 
 public class SwagLabsActions {
+
+    public static Performable selectProductCategory(String productCategory) {
+        return Task.where("{0} select product category",
+                actor -> {
+                    actor.attemptsTo(
+                            Click.on(SwagLabsPath.SELECT_PRODUCT_CATEGORY.of(productCategory))
+                    );
+        });
+    }
 
     public static Performable enterPersonalFirstName(String personalFirstName) {
         return Task.where("{0} enter user first name",
@@ -32,6 +42,8 @@ public class SwagLabsActions {
                     );
         });
     }
+
+
 
 //    public static Performable enterUserPassword(String userPassword) {
 //        return Task.where("{0} enter user password",

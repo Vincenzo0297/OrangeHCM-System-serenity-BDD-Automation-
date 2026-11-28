@@ -5,6 +5,7 @@ Feature: SwagLabs_TC_1
     Then User enters username '<Username>'
     And User enters password '<Password>'
     And User click on the login button
+    And User select the product category '<Category>'
     And User click on the cart
     And User click on the checkout button
     Then User enter details
@@ -18,8 +19,8 @@ Feature: SwagLabs_TC_1
     And User click on the logout button
 
     Examples:
-      | Username         | Password     |
-      | standard_user    | secret_sauce |
+      | Username         | Password     | Category              |
+      | standard_user    | secret_sauce | Name (Z to A)         |
 
 
     # run in terminal
@@ -28,5 +29,4 @@ Feature: SwagLabs_TC_1
 
     # Miss out requirement
     # 1) selecting the cart
-    # 2) selecting the option
-    # 3) validation
+    # 2) validation
